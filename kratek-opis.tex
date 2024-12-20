@@ -1,0 +1,61 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[slovene]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath, amssymb}
+
+\newtheorem{izrek}{Izrek}[section]
+
+%\theoremstyle{definition}
+\newtheorem{definicija}{Definicija}[section]
+
+\newtheorem{opomba}{Opomba}[section]
+
+\title{
+    Distance vector of non tubical nanotube fullerenes of type-(5-0)
+}
+
+\author{Amanda Babič, Aljaž Flus \\
+        {\small Mentorja Riste Škrekovski, Janoš Vidali}}
+\date{19. 12. 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Uvod}
+
+Nanostrukture, kot so fulereni, predstavljajo eno od najbolj zanimivih odkritij na področju nanotehnologije in kemije. Med temi strukturami so že posebaj zanimivi
+fulereni tipa $(5,0)$, ki zaradi svoje posebne geometrije in lastnosti omogočajo vpogled v kompleksne topološke in matematične strukture.
+Ti fulereni so definirani z $n=10k$ oglišči in imajo premer  $\frac{n}{5}-1$. Njihova geometrija vključuje dolg cilindrični del, sestavljen iz šestkotnikov, ter zaključnega dela sestavljenaga iz petkotnikov.
+Te grafi so simetrični kar bomo uporabili v nadaljevanju naloge. Razumevanje razdalj med točkami v teh grafih je ključno za odkrivanje njihovih lastnosti. V tem okviru so vozlišča grafov razporejena v $k$
+ločenih orbit, pri čemer vsaka orbita vsebuje točno 10 vozlišč. Glavni cilj te naloge je čim bolj natančno izračunati vektor razdalj za izbrano vozlišče iz vsake orbite.
+
+\section{Definicije}
+
+\begin{definicija}
+    Vektor razdalje $d_{u}$ je vektor, katerga i-ta koordinata predstavlja število ogljišč, ki so od izbranega ogljišča $u$ oddaljena natanko za $i$. 
+\end{definicija}
+
+\begin{definicija}
+    Graf fullerena je 3-povezan, 3-regularen ravninski graf, sestavljen izključno iz petkotnih in šestkotnih ploskev.
+\end{definicija}
+
+\begin{opomba}
+    Po Eulerjevi formuli, je število petkotnih ploskev vedno 12.
+\end{opomba}
+
+\begin{definicija}
+    Nanocevke so cilindrični fullerenski grafi, pri katerih sta oba konca cilindra zaprta s podgrafoma, sestavljenima iz šestih petkotnikov.
+\end{definicija}
+
+Cilindrični del nanocevke je določen z $(p_1, p_2)$-vektorjem, ki opisuje način ovijanja neskončne mreže šestkotnikov, da nastane cilindrična struktura.
+Številki $p_1 \text{in} p_2$ označujeta koeficiente linearne kombinacije enotskih vektorjev $a_1 \text{in} a_2$, pri čemer $p_1a_1 + p_2a_2$ povezuje
+isto točko na mreži, ko jo zavijemo v cilindrično obliko.
+    
+\begin{opomba}
+    Predpostavimo, da velja $p_1 \ge p_2$, s čimer se izognemo simetričnemu opisu iste konfiguracije.
+\end{opomba}
+
+\end{document}
