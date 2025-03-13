@@ -6,6 +6,7 @@
 \usepackage{amsmath, amssymb}
 
 
+
 \newtheorem{izrek}{Izrek}[section]
 
 %\theoremstyle{definition}
@@ -26,7 +27,7 @@
 
 \author{Amanda Babič, Aljaž Flus \\
         {\small Mentorja Riste Škrekovski, Janoš Vidali}}
-\date{7. 3. 2025}
+\date{\today}
 
 
 \begin{document}
@@ -113,6 +114,8 @@ da bo $n_{0}(v) = 1$ za vsak $v \in V(G)$
     \end{itemize}
 \end{lema}
 
+Lemo 2 sva preverila in ugotovila, da velja za $k=2$ in $k=3$. Vendar pa se pri večjih vrednostih $k$ izkaže, da lema ne drži, pri čemer ni očitne rešitve, kako bi jo ustrezno popravila.
+
 Za $k \geq 2$ in za vsak $j=0,1, \dots , k$ plast $L_j$ razdeli naš nanotub na dva disjuntna dela. Lev del sestavljajo plasti $L_i$ za $i = 0,1,\dots , j-1$, desni
  del pa je sestavljen iz plasti $L_i$ za $I = j+1, \dots, k$. Z $L(v)$ označimo levo stran particije, z $R(v)$ pa desno stran. Z $D(v)$ pa označimo distančni vektor znotraj plasti $L_j$.
 
@@ -132,8 +135,10 @@ Za $k \geq 2$ in za vsak $j=0,1, \dots , k$ plast $L_j$ razdeli naš nanotub na 
 \end{trditev}
 
 Če imamo $u \in L_j^{in}$ in $v \in L_{k-j}^{out}$ zaradi simetrije velja $R(u) = L(v)$. Velja tudi obratno, če imamo $u \in L_j^{out}$ in 
-$v \in L_{k-j}^{in}$ prav tako velja $R(u) = L(v)$. Zaradi tega je dovlj izračunati samo $L(v)$. Izračuni so objavljeni v nasledni tabeli.
+$v \in L_{k-j}^{in}$ prav tako velja $R(u) = L(v)$. Zaradi tega je dovlj izračunati samo $L(v)$. Izračuni so objavljeni v Tabela 1.
 
+\begin{table}
+\centering
 $\begin{array}{ |c|c|c| }
     \hline
     L(v) & v \in L_j^{in} & v \in L_j^{out}  \\
@@ -160,14 +165,22 @@ $\begin{array}{ |c|c|c| }
     \hline
     j = k, k \geq 7 & [0, 1, 4, 6, 6, 6, 6, 5, 6, 5^{\#(2k - 9)}] & \\
     \hline
-
 \end{array}$
+\caption{Vektorji distančne particije, kjer gledamo samo vektorje ki so levo od našega vozlišča. Notacija $\#5^k$ nam predstavlja število petic zapored na koncu vektorja.}
+\end{table}
+
+V Tabela 1 opazimo, da se distančni vektorji razlikujejo za vozlišča znotraj iste orbite. To je posledica dejstva, da so vozlišča lahko bodisi vhodna bodisi izhodna. Vidimo, da je prvo število v vseh vektorjih vedno enako $0$, 
+saj upoštevamo le vozlišča v orbitah na levi strani izbranega vozlišča. Pri izhodnih vozliščih opazimo, da je tudi drugi element enak $0$, kar pomeni, da sta potrebni vsaj dve potezi, da zapustimo svojo orbito. Poleg tega opazimo, 
+da se distančni vektorji od $k=7$ naprej stabilizirajo.
+
 
 \begin{izrek}
 Naj bo $k \geq 10$. Dodatno naj bo $x = \text{'in'}$, če je $k$ sod in $x = \text{'out'}$, če je $k$ lih. Tako lahko izračunamo vektorje distančne 
-particije za vsa vozlišča $C_{10k}$. Te vektorji so napisani v naslednji tabeli.
+particije za vsa vozlišča $C_{10k}$. Te vektorji so napisani v Tabela 2.
 \end{izrek}
 
+\begin{table}
+    
 $\begin{array}{|c|c|}
     \hline
 
@@ -228,6 +241,9 @@ $\begin{array}{|c|c|}
     j = \lfloor k/2 \lfloor, k \text{ lih }  \text{ za vsak } v \in L_j  & [1, 3, 6, 9, 12, 14, 14, 13, 12, 11, 10^{\#(k - 11)}, 5]        \\
     \hline
 \end{array}$
+\caption{Vewktorji distančne particije za graf $C_{10k}$, kjer je $k \geq 10$. Notaciji $\#5^k$ in $\#10^k$, nam povejo število petic oziroma desetic na koncu distančnega vektorja}
+\end{table}
 
+V Tabela 2 lahko opazimo, da distančni vektor ni odvisen zgolj od tega, ali je vozlišče $v$ vhodno ali izhodno, temveč tudi od tega ali je $k$ sodo ali liho število.
 
 \end{document}
