@@ -246,4 +246,48 @@ $\begin{array}{|c|c|}
 
 V Tabela 2 lahko opazimo, da distančni vektor ni odvisen zgolj od tega, ali je vozlišče $v$ vhodno ali izhodno, temveč tudi od tega ali je $k$ sodo ali liho število.
 
+\section{Indeksi na podlagi distanc v $(5,0)$ nanotubu}
+
+V tem oddelku bomo testirali različne indekse ki jih izračunamo na podlagi distanc v grafu $C_{10k}$
+
+\begin{definicija}
+    Indeks ekscentrične povezanosti za graf $G$ izračunamo tako
+    $$
+    \xi_{c}(G) = \sum_{v \in V(G)}deg_G(v)ecc_G(v),
+    $$
+    kjer z $deg_G(v)$ označimo stopnjo vozlišča $v$ v grafu $G$.
+\end{definicija}
+
+\begin{definicija}
+    Indeks sosednje ekscentričnosti povezanosti za graf $G$ izračunamo tako
+    $$
+    \xi^{ad}(G) = \sum_{v \in V(G)}\frac{SG(v)}{ecc_G(v)},
+    $$
+    kjer z $SG(v)$ označimo seštevek stopenj vozlišč, ki so sosenja vozlišču v.
+\end{definicija}
+
+\begin{definicija}
+    Prvi Zagrebški indeks povezanosti je definiran kot
+    $$
+    \xi_{1}(G) = \sum_{u \in E(G)}ecc_G^2(u),
+    $$
+    in drugi Zagrebški indeks povezanosti je definiran kot
+    $$
+    \xi_{2}(G) = \sum_{uv \in E(G)}(ecc_G(u)ecc_G(v)).
+    $$
+\end{definicija}
+
+\begin{izrek}
+    Naj bo $k \geq 8$. Potem velja:
+    \begin{enumerate}
+        \item $\xi_{c}(C_{10k}) = 45k^2 - 15k$,
+        \item $90 \cdot \ln(2) \leq \xi^{ad}(C_{10k}) \leq 90 \cdot (\ln(2k - 1) - \ln(k - 1))$,
+        \item $\xi_{1}(C)_{10k} = 45k^2 - 15k$
+        \item $\xi_{2}(C_{10k}) = 35k^3 - \frac{45}{2}k^2 + \delta,$ kjer $\delta = -5k + 10$, če je $k$ sodo in $\delta = 15 / 2 - 5 k$, če je $k$ liho. 
+    \end{enumerate}
+\end{izrek}
+
+Ta izrek sva preverila in res drži v prvem, drugem in zadnjem primeru, v tretjem pa ne. Prav tako ni nobe očitne rešitve za ta primer. 
+Opazila pa sva tudi da druga točka velja za $k \geq 6$.
+
 \end{document}
