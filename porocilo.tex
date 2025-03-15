@@ -290,6 +290,24 @@ V tem oddelku bomo testirali različne indekse ki jih izračunamo na podlagi dis
 Ta izrek sva preverila in res drži v prvem, drugem in zadnjem primeru, v tretjem pa ne. Prav tako ni nobe očitne rešitve za ta primer. 
 Opazila pa sva tudi da druga točka velja za $k \geq 6$.
 
+\begin{definicija}
+    Wienerjev indeks je definiran kot vsota distanc v grafu $G$
+    $$
+    W(G) = \sum_{\{u,v\}\in V(G)}dist(u,v).
+    $$
+    Hiper Wienerjev indeks je definiran kot
+    $$
+    WW(G) = \sum_{\{u,v\}\in V(G)} (dist(u,v) + dist^2(u,v)).
+    $$
+    Recipročni komplementarni Wienerjev indeks je definiran kot
+    $$
+    RCW(G) = \sum_{\{u,v\}\in V(G)} \frac{1}{diam(G) + 1 - dist_G(u,v)}.
+    $$
+\end{definicija}
+
+
+
+
 \begin{izrek}
     Naj bo $k \geq 10$ in $t$ tak, da velja $10 \leq t \leq 2k - 1$. Tedaj velja:
     \begin{alignat*}{2}
@@ -333,47 +351,39 @@ Pravilna formula za $R_k$ je:
         L =
         \begin{cases} 
             \frac{50k}{\alpha + 1} \left( (2k)^{\alpha + 1} - 10^{\alpha + 1} \right) - 
-            \frac{25}{\alpha + 2} \left( (2k-1)^{\alpha + 2} - 9^{\alpha + 2} \right), 
-            & \text{če } \alpha < 0, \alpha \neq -1, -2,
+            \frac{25}{\alpha + 2} \left( (2k-1)^{\alpha + 2} - 9^{\alpha + 2} \right) & \text{če } \alpha < 0, \alpha \neq -1, -2 \\
     
             \frac{50k}{\alpha + 1} \left( (2k-1)^{\alpha + 1} - 9^{\alpha + 1} \right) - 
-            \frac{25}{\alpha + 2} \left( (2k-1)^{\alpha + 2} - 9^{\alpha + 2} \right), 
-            & \text{če } 0 < \alpha < 1, 
+            \frac{25}{\alpha + 2} \left( (2k-1)^{\alpha + 2} - 9^{\alpha + 2} \right) & \text{če } 0 < \alpha < 1 \\
     
             \frac{50k}{\alpha + 1} \left( (2k-1)^{\alpha + 1} - 9^{\alpha + 1} \right) - 
-            \frac{25}{\alpha + 2} \left( (2k)^{\alpha + 2} - 10^{\alpha + 2} \right), 
-            & \text{če } \alpha > 1, 
+            \frac{25}{\alpha + 2} \left( (2k)^{\alpha + 2} - 10^{\alpha + 2} \right) & \text{če } \alpha > 1 \\
     
-            50k \left( \ln(2k) - \ln(10) \right), 
-            & \text{če } \alpha = -1, 
+            50k \left( \ln(2k) - \ln(10) \right) & \text{če } \alpha = -1 \\
     
-            -50k \left( (2k)^{-1} - 10^{-1} \right) - 25 \left( \ln(2k-1) - \ln(9) \right), 
-            & \text{če } \alpha = -2.
+            -50k \left( (2k)^{-1} - 10^{-1} \right) - 25 \left( \ln(2k-1) - \ln(9) \right) & \text{če } \alpha = -2
         \end{cases}
     \end{equation*}
+    
 
     \begin{equation*}
         P =
         \begin{cases} 
             \frac{50k}{\alpha + 1} \left( (2k-1)^{\alpha + 1} - 9^{\alpha + 1} \right) - 
-            \frac{25}{\alpha + 2} \left( (2k)^{\alpha + 2} - 10^{\alpha + 2} \right), 
-            & \text{če } \alpha < 0, \alpha \neq -1, -2, 
+            \frac{25}{\alpha + 2} \left( (2k)^{\alpha + 2} - 10^{\alpha + 2} \right) & \text{če } \alpha < 0, \alpha \neq -1, -2 \\
     
             \frac{50k}{\alpha + 1} \left( (2k)^{\alpha + 1} - 10^{\alpha + 1} \right) - 
-            \frac{25}{\alpha + 2} \left( (2k)^{\alpha + 2} - 10^{\alpha + 2} \right), 
-            & \text{če } 0 < \alpha < 1, 
+            \frac{25}{\alpha + 2} \left( (2k)^{\alpha + 2} - 10^{\alpha + 2} \right) & \text{če } 0 < \alpha < 1 \\
     
             \frac{50k}{\alpha + 1} \left( (2k)^{\alpha + 1} - 10^{\alpha + 1} \right) - 
-            \frac{25}{\alpha + 2} \left( (2k-1)^{\alpha + 2} - 9^{\alpha + 2} \right), 
-            & \text{če } \alpha > 1, 
+            \frac{25}{\alpha + 2} \left( (2k-1)^{\alpha + 2} - 9^{\alpha + 2} \right) & \text{če } \alpha > 1 \\
     
-            50k \left( \ln(2k-1) - \ln(9) \right) - 50k + 250, 
-            & \text{če } \alpha = -1,
+            50k \left( \ln(2k-1) - \ln(9) \right) - 50k + 250 & \text{če } \alpha = -1 \\
     
-            -50k \left( (2k-1)^{-1} - 9^{-1} \right) - 25 \left( \ln(2k) - \ln(10) \right), 
-            & \text{če } \alpha = -2.
+            -50k \left( (2k-1)^{-1} - 9^{-1} \right) - 25 \left( \ln(2k) - \ln(10) \right) & \text{če } \alpha = -2
         \end{cases}
     \end{equation*}
+    
 
 
     
@@ -394,37 +404,43 @@ Na zagovoru bodo predstavljeni tudi različni indeksi in njihove lastnosti.
 S pomočjo grafov bo analiza še bolj nazorna, kar omogoča boljše razumevanje strukture in povezav v nanotubih.
 
 Pogledali si bomo sledeče indekse:
-
 \begin{enumerate}
     \item \textbf{Recipročno komplementarni Wienerjev indeks}:
-    [
+    \[
     RCW(G) = \sum_{{u,v} \in V(G)} \frac{1}{d + 1 - \operatorname{dist}_G(u,v)}
-    ]
+    \]
+    
     \item \textbf{Sum-Balaban indeks}:
-    [
-    SJ(G) = \frac{m}{m - n + 2} \sum_{uv \in E(G)} \frac{1}{(w(u) + w(v))**(1/2)}
-    ]
+    \[
+    SJ(G) = \frac{m}{m - n + 2} \sum_{uv \in E(G)} \frac{1}{(w(u) + w(v))^{1/2}}
+    \]
+    
     \item \textbf{Generaliziran Wienerjev indeks}:
-    [
-    W{\lambda}(G) = \sum{{u,v} \in V(G)} \text{dist}^{\lambda}(u,v)
-    ]
+    \[
+    W_{\lambda}(G) = \sum_{{u,v} \in V(G)} \operatorname{dist}^{\lambda}(u,v)
+    \]
+    
     \item \textbf{Indeks ekscentrične povezanosti}:
-    [
-    \xic(G) = \sum{v \in V(G)} \deg_G(v) \cdot \text{ecc}_G(v)
-    ]
+    \[
+    \xi_c(G) = \sum_{v \in V(G)} \deg_G(v) \cdot \operatorname{ecc}_G(v)
+    \]
+    
     \item \textbf{Indeks sosednje ekscentričnosti}:
-    [
-    \xi{\text{ad}}(G) = \sum{v \in V(G)} \frac{ \text{SG(v)}} {\text{ecc}_G}
-    ]
+    \[
+    \xi_{\text{ad}}(G) = \sum_{v \in V(G)} \frac{\operatorname{SG}(v)}{\operatorname{ecc}_G(v)}
+    \]
+    
     \item \textbf{Prvi ekscentrični povezovalni indeks}:
-    [
-    \xi{1}(G) = \sum{uv \in E(G)} (\text{e}_G(u) + \text{e}_G(v))
-    ]
-    \item \textbf{Prvi ekscentrični povezovalni indeks}:
-    [
-    \xi{1}(G) = \sum{uv \in E(G)} (\text{e}_G(u) * \text{e}_G(v))
-    ]
+    \[
+    \xi_1(G) = \sum_{uv \in E(G)} (\operatorname{e}_G(u) + \operatorname{e}_G(v))
+    \]
+    
+    \item \textbf{Drugi ekscentrični povezovalni indeks}:
+    \[
+    \xi_1^*(G) = \sum_{uv \in E(G)} (\operatorname{e}_G(u) \cdot \operatorname{e}_G(v))
+    \]
 \end{enumerate}
+
 
 
 
