@@ -290,155 +290,58 @@ V tem oddelku bomo testirali različne indekse ki jih izračunamo na podlagi dis
 Ta izrek sva preverila in res drži v prvem, drugem in zadnjem primeru, v tretjem pa ne. Prav tako ni nobe očitne rešitve za ta primer. 
 Opazila pa sva tudi da druga točka velja za $k \geq 6$.
 
-
 \begin{izrek}
- Naj bo $k \geq 10$ in $t$ tak, da velja $10 \leq t \leq 2k - 1$. Tedaj velja:
-    \begin{align}
-        W1(C{10k}) &= 15k, \
-        W3(C{10k}) &= 45k - 30, \
-        W5(C{10k}) &= 70k - 135, \
-        W7(C{10k}) &= 65k - 220, \
-        W9(C{10k}) &= 55k - 250, \
-        W2(C{10k}) &= 30k, \
-        W4(C{10k}) &= 60k - 80, \
-        W6(C{10k}) &= 70k - 180, \
-        W8(C{10k}) &= 60k - 230, \
-        Wt(C{10k}) &= 50k - 25t.
-    \end{align}
+    Naj bo $k \geq 10$ in $t$ tak, da velja $10 \leq t \leq 2k - 1$. Tedaj velja:
+    \begin{alignat*}{2}
+        W_1(C_{10k}) &= 15k,  &\quad W_2(C_{10k}) &= 30k, \\
+        W_3(C_{10k}) &= 45k - 30, &\quad W_4(C_{10k}) &= 60k - 80, \\
+        W_5(C_{10k}) &= 70k - 135, &\quad W_6(C_{10k}) &= 70k - 180, \\
+        W_7(C_{10k}) &= 65k - 220, &\quad W_8(C_{10k}) &= 60k - 230, \\
+        W_9(C_{10k}) &= 55k - 250, &\quad W_t(C_{10k}) &= 50k - 25t.
+    \end{alignat*}
 \end{izrek}
 
-
-Ugotovitve so sledeče:
-\begin{itemize}
-    \item Spremenljivka $t$ je vedno navzgor omejena z $2k - 1$, saj je to premer grafa. Zato je smiselno, da velja $W_t = 0$ za $t \geq 2k - 1$.
-    \item Trditev je pravilna za vse $k \geq 2$, če le upoštevamo, da je $t$ omejen s premerom grafa.
-\end{itemize}
-
-
+Izrek drži.
 
 \begin{izrek}
-  Naj bo $k \geq 10$. Tedaj velja:
-    \begin{align}
-        W(C{10k}) &= \frac{100}{3} k^3 + \frac{1175}{3} k - 670, \
-        WW(C{10k}) &= \frac{100}{3} k^4 + \frac{100}{3} k^3 - \frac{25}{3} k^2 + \frac{10175}{3} k - 7200, \
+    Naj bo $k \geq 10$. Tedaj velja:
+    \begin{align*}
+        W(C_{10k}) &= \frac{100}{3} k^3 + \frac{1175}{3} k - 670, \\
+        WW(C_{10k}) &= \frac{100}{3} k^4 + \frac{100}{3} k^3 - \frac{25}{3} k^2 + \frac{10175}{3} k - 7200, \\
         RCW(G) &= R_k + 50k - 250.
-    \end{align}
-   \end{izrek}
-   
-Tu je napaka v formuli za Rk.
+    \end{align*}
+\end{izrek}
 
-Pravilna formula je sledeča:
+Pravilna formula za $R_k$ je:
+\begin{equation*}
+    R_k = \sum_{i=1}^{9} \frac{W_i(C_{10k})}{2k - i}.
+\end{equation*}
 
-[\(
-
-R_k = (15 * k) / (2 * k - 1) + (30 * k) / (2 * k - 2) + (45 * k - 30) / (2 * k - 3) \
-+ (60 * k - 80) / (2 * k - 4) + (70 * k - 135) / (2 * k - 5) \
-+ (70 * k - 180) / (2 * k - 6) + (65 * k - 220 ) / (2 * k - 7) \
-+ (60 * k - 230) / (2 * k - 8) + (55 * k - 250) / (2 * k - 9)
-
-
-
-\)]
-
-
-
-   \begin{izrek}
-
-
-    Naj bo $\alpha \in \mathbb{R} \setminus {0,1}$. Označimo 
-    [
-    W9^\alpha = \sum{t=1}^{9} t \cdot Wt(C{10k}).
-    ]
+\begin{izrek}
+    Naj bo $\alpha \in \mathbb{R} \setminus \{0,1\}$. Označimo
+    \begin{equation*}
+        W_9^\alpha = \sum_{t=1}^{9} t \cdot W_t(C_{10k}).
+    \end{equation*}
     Tedaj velja:
-    [
-    W9^\alpha + L < W^\alpha(C{10k}) < W_9^\alpha + P,
-    ]
+    \begin{equation*}
+        W_9^\alpha + L < W^\alpha(C_{10k}) < W_9^\alpha + P,
+    \end{equation*}
     kjer sta $L$ in $P$ spodnja in zgornja meja, določeni na sledeč način:
-
-
-  
-[
-L =
-\begin{cases} 
-\frac{50k}{\alpha + 1} \left( (2k)^{\alpha + 1} - 10^{\alpha + 1} \right) - \frac{25}{\alpha + 2} \left( (2k-1)^{\alpha + 2} - 9^{\alpha + 2} \right), & \text{če } \alpha < 0, \alpha \neq -1, -2, \
-\frac{50k}{\alpha + 1} \left( (2k-1)^{\alpha + 1} - 9^{\alpha + 1} \right) - \frac{25}{\alpha + 2} \left( (2k-1)^{\alpha + 2} - 9^{\alpha + 2} \right), & \text{če } 0 < \alpha < 1, \
-\frac{50k}{\alpha + 1} \left( (2k-1)^{\alpha + 1} - 9^{\alpha + 1} \right) - \frac{25}{\alpha + 2} \left( (2k)^{\alpha + 2} - 10^{\alpha + 2} \right), & \text{če } \alpha > 1, \
-50k \left( \ln(2k) - \ln(10) \right), & \text{če } \alpha = -1, \
--50k \left( (2k)^{-1} - 10^{-1} \right) - 25 \left( \ln(2k-1) - \ln(9) \right), & \text{če } \alpha = -2.
-\end{cases}
-]
-
-
-[
-P =
-\begin{cases} 
-\frac{50k}{\alpha + 1} \left( (2k-1)^{\alpha + 1} - 9^{\alpha + 1} \right) - \frac{25}{\alpha + 2} \left( (2k)^{\alpha + 2} - 10^{\alpha + 2} \right), & \text{če } \alpha < 0, \alpha \neq -1, -2, \
-\frac{50k}{\alpha + 1} \left( (2k)^{\alpha + 1} - 10^{\alpha + 1} \right) - \frac{25}{\alpha + 2} \left( (2k)^{\alpha + 2} - 10^{\alpha + 2} \right), & \text{če } 0 < \alpha < 1, \
-\frac{50k}{\alpha + 1} \left( (2k)^{\alpha + 1} - 10^{\alpha + 1} \right) - \frac{25}{\alpha + 2} \left( (2k-1)^{\alpha + 2} - 9^{\alpha + 2} \right), & \text{če } \alpha > 1, \
-50k \left( \ln(2k-1) - \ln(9) \right) - 50k + 250, & \text{če } \alpha = -1, \
--50k \left( (2k-1)^{-1} - 9^{-1} \right) - 25 \left( \ln(2k) - \ln(10) \right), & \text{če } \alpha = -2.
-\end{cases}
-]
-
-   \end{izrek}
-
+\end{izrek}
 
    Kljub večkratnim preverjanjem in različnim pristopom nikakor ne uspe priti do pravilnega rezultata, 
    kjer bi izrek veljal.
    
    Zanimivo pa je, da izrek drži za vse $\alpha$, razen za $\alpha = -2$, če odstranimo $W9$ iz ocen:
-   [
+   \[
    L < W^\alpha(C{10k}) < P.
-   ]
-   To kaže na morebitno napačno vključitev $W_9$ v meje ali potrebo po drugačnem načinu upoštevanja tega člena.
+   \]
+   
+   To kaže na morebitno napačno vključitev $W_9$ v meje ali potrebo po drugačnem načinu upoštevanja tega člena. \\
 
 
-   \begin{table}[h]
-    \centering
-    \small
-    \begin{tabular}{cccccccc}
-        \toprule
-        $k$ & $\alpha$ & Spodnja meja & $W^\alpha(C_{10k})$ & Zgornja meja & $W_9^\alpha$ & $L$ & $P$ \
-        \midrule
-        20 & -2.0 & 45243.34 & 44.24 & 45255.81 & 45205 & 38.34 & 50.81 \
-        21 & -2.0 & 47897.09 & 48.28 & 47910.18 & 47855 & 42.09 & 55.18 \
-        22 & -2.0 & 50550.90 & 52.37 & 50564.60 & 50505 & 45.90 & 59.60 \
-        23 & -2.0 & 53204.76 & 56.52 & 53219.07 & 53155 & 49.76 & 64.07 \
-        24 & -2.0 & 55858.68 & 60.71 & 55873.59 & 55805 & 53.68 & 68.59 \
-        25 & -2.0 & 58512.64 & 64.95 & 58528.14 & 58455 & 57.64 & 73.14 \
-        26 & -2.0 & 61166.63 & 69.23 & 61182.74 & 61105 & 61.63 & 77.74 \
-        27 & -2.0 & 63820.67 & 73.54 & 63837.37 & 63755 & 65.67 & 82.37 \
-        28 & -2.0 & 66474.75 & 77.89 & 66492.03 & 66405 & 69.75 & 87.03 \
-        29 & -2.0 & 69128.85 & 82.27 & 69146.73 & 69055 & 73.85 & 91.73 \
-        \midrule
-        20 & -1.0 & 45921.34 & 674.57 & 46591.29 & 45205 & 1386.29 & 716.34 \
-        21 & -1.0 & 48647.16 & 747.66 & 49361.84 & 47855 & 1506.84 & 792.16 \
-        22 & -1.0 & 51375.37 & 823.13 & 52134.76 & 50505 & 1629.76 & 870.37 \
-        23 & -1.0 & 54105.85 & 900.88 & 54909.96 & 53155 & 1754.96 & 950.85 \
-        24 & -1.0 & 56838.51 & 980.79 & 57687.34 & 55805 & 1882.34 & 1033.51 \
-        25 & -1.0 & 59573.24 & 1062.80 & 60466.80 & 58455 & 2011.80 & 1118.24 \
-        26 & -1.0 & 62309.98 & 1146.80 & 63248.26 & 61105 & 2143.26 & 1204.98 \
-        27 & -1.0 & 65048.64 & 1232.72 & 66031.64 & 63755 & 2276.64 & 1293.64 \
-        28 & -1.0 & 67789.15 & 1320.50 & 68816.87 & 66405 & 2411.87 & 1384.15 \
-        29 & -1.0 & 70531.45 & 1410.07 & 71603.89 & 69055 & 2548.89 & 1476.45 \
-        \midrule
-        20 & 0.5 & 94747.35 & 50711.74 & 97018.53 & 45205 & 51813.53 & 49542.35 \
-        21 & 0.5 & 105094.84 & 58487.30 & 107518.15 & 47855 & 59663.15 & 57239.84 \
-        22 & 0.5 & 116090.38 & 66910.92 & 118665.86 & 50505 & 68160.86 & 65585.38 \
-        23 & 0.5 & 127749.22 & 75997.84 & 130476.91 & 53155 & 77321.91 & 74594.22 \
-        24 & 0.5 & 140086.26 & 85762.98 & 142966.20 & 55805 & 87161.20 & 84281.26 \
-        25 & 0.5 & 153116.09 & 96220.92 & 156148.33 & 58455 & 97693.33 & 94661.09 \
-        26 & 0.5 & 166853.01 & 107385.94 & 170037.58 & 61105 & 108932.58 & 105748.01 \
-        27 & 0.5 & 181311.02 & 119272.06 & 184647.95 & 63755 & 120892.95 & 117556.02 \
-        28 & 0.5 & 196503.85 & 131893.01 & 199993.18 & 66405 & 133588.18 & 130098.85 \
-        29 & 0.5 & 212444.99 & 145262.28 & 216086.76 & 69055 & 147031.76 & 143389.99 \
-        \bottomrule
-    \end{tabular}
-    \caption{Primeri, kjer izrek ne drži.}
-\end{table}
-
-
-Na zagovoru bodo predstavljeni tudi različni indeksi in njihove lastnosti, saj je prikaz s pomočjo grafov še toliko bolj zanimiv.
+Na zagovoru bodo predstavljeni tudi različni indeksi in njihove lastnosti.
+S pomočjo grafov bo analiza še bolj nazorna, kar omogoča boljše razumevanje strukture in povezav v nanotubih.
 
 
 \end{document}
