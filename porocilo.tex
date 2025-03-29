@@ -331,11 +331,12 @@ Izrek drži.
     \end{align*}
 \end{izrek}
 
-Pravilna formula za $R_k$ je:
+\textcolor{red}{
+Pravilna formula za $R_k$ v trditvi 7 je:
 \begin{equation*}
     R_k = \sum_{i=1}^{9} \frac{W_i(C_{10k})}{2k - i}.
 \end{equation*}
-
+}
 \begin{izrek}
     Naj bo $\alpha \in \mathbb{R} \setminus \{0,1\}$. Označimo
     \begin{equation*}
@@ -390,8 +391,10 @@ Pravilna formula za $R_k$ je:
     
 \end{izrek}
 
+
+\textcolor{red}{
    Kljub večkratnim preverjanjem in različnim pristopom nikakor ne uspe priti do pravilnega rezultata, 
-   kjer bi izrek veljal.
+   kjer bi izrek veljal. 
    
    Zanimivo pa je, da izrek drži za vse $\alpha$, razen za $\alpha = -2$, če odstranimo $W9$ iz ocen:
    \[
@@ -399,7 +402,8 @@ Pravilna formula za $R_k$ je:
    \]
    
    To kaže na morebitno napačno vključitev $W_9$ v meje ali potrebo po drugačnem načinu upoštevanja tega člena. \\
-
+    Opazimo tudi, da ne velja vedno $ \text{L} < \text{P} $ (npr. pri $\alpha = -1$).
+}
 
 Na zagovoru bodo predstavljeni tudi različni indeksi in njihove lastnosti.
 S pomočjo grafov bo analiza še bolj nazorna, kar omogoča boljše razumevanje strukture in povezav v nanotubih.
@@ -410,36 +414,115 @@ Pogledali si bomo sledeče indekse:
     \[
     RCW(G) = \sum_{{u,v} \in V(G)} \frac{1}{d + 1 - \operatorname{dist}_G(u,v)}
     \]
+
+
+
+
+Spodaj je prikazan graf Reciprocal Complementary Wiener indeksa glede na velikost grafa:
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{rcw_index_plot.png}
+    \caption{Vrednosti RCW(G) za različne velikosti grafa C\{10k\}.}
+    \label{fig:rcw}
+\end{figure}
+Rast je (z razliko pri majhnih k) linearna in stabilna. Razdalje so pri majhnih k bolj skoncentrirane in graf preide iz kompaktne strukture v bolj raztegnjeno strukturo. 
     
     \item \textbf{Sum-Balaban indeks}:
     \[
     SJ(G) = \frac{m}{m - n + 2} \sum_{uv \in E(G)} \frac{1}{(w(u) + w(v))^{1/2}}
     \]
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.8\textwidth]{sb_index_plot.png}
+        \caption{Vrednosti RCW(G) za različne velikosti grafa C\{10k\}.}
+        \label{fig:rcw}
+    \end{figure}
+
+    Opazimo, da člen pred vsoto konvergira k 3 (stabilno razmerje povezav in vozlišč). Indeks nam pove, kako so vozlišča povezana znotraj grafa. Nižja vrednost implicira kompakten graf in enakomerno, simetrično strukturo.
     
     \item \textbf{Generaliziran Wienerjev indeks}:
     \[
     W_{\lambda}(G) = \sum_{{u,v} \in V(G)} \operatorname{dist}^{\lambda}(u,v)
     \]
     
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.8\textwidth]{gw_index_plot.png}
+        \caption{Vrednosti RCW(G) za različne velikosti grafa C\{10k\}.}
+        \label{fig:rcw}
+    \end{figure}
+
+    Opazimo da ne glede na lambdo indeks monotono raste, kar je smiselno, saj se število vozlišč povečuje. \
+Pri lambdah blizu 1 je rast ekstremno hitra (skoraj eksponentna), pri negativnih je rast bistveno počasnejša, a še vedno monotono narašča.
+
+
     \item \textbf{Indeks ekscentrične povezanosti}:
     \[
     \xi_c(G) = \sum_{v \in V(G)} \deg_G(v) \cdot \operatorname{ecc}_G(v)
     \]
-    
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.8\textwidth]{ec_index_plot.png}
+        \caption{Vrednosti RCW(G) za različne velikosti grafa C\{10k\}.}
+        \label{fig:rcw}
+    \end{figure}
+
+    Ta indeks je odvisen od stopnje vozlišč in od ekscentričnosti vozlišč. Naš graf je 3-regularen, zato je v našem primeru indeks odvisen zgolj od ekscentričnosti. Tako rast indeksa odraža rast ekscentričnosti. Graf nam jasno kaže, da se z večanjem vozlišč graf razteguje v dolžino.
+
     \item \textbf{Indeks sosednje ekscentričnosti}:
     \[
     \xi_{\text{ad}}(G) = \sum_{v \in V(G)} \frac{\operatorname{SG}(v)}{\operatorname{ecc}_G(v)}
     \]
     
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.8\textwidth]{ea_index_plot.png}
+        \caption{Vrednosti RCW(G) za različne velikosti grafa C\{10k\}.}
+        \label{fig:rcw}
+    \end{figure}
+
+
+    Ta indeks je odvisen od ekstentričnosti posameznega vozlišča in vsote stopenj njegovih sosedov. 
+    Ko je k majhen, indeks hitro narašča. Ko dodamo samo nekaj orbital, se poveča vsota stopenj sosedov, ampak hkrati ekscentričnost še ni močno narasla, kar poveča indeks.
+    Graf hitro doseže maksimum in nato se približuje določeni vrednosti. Ko k narašča, začnejo tudi ekscentričnosti vozlišč hitro naraščati, kar zmanjšuje indeks. zaradi regularnosti našega grafa pa se ta dva učinka medsebojno izravnata.
+
+    Opazimo, da (po doseženem maksimumu) konvergira proti 62.
+
+
     \item \textbf{Prvi ekscentrični povezovalni indeks}:
     \[
     \xi_1(G) = \sum_{uv \in E(G)} (\operatorname{e}_G(u) + \operatorname{e}_G(v))
     \]
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.8\textwidth]{fec_index_plot.png}
+        \caption{Vrednosti RCW(G) za različne velikosti grafa C\{10k\}.}
+        \label{fig:rcw}
+    \end{figure}
     
+
+    Indeks je odvisen od ekscentričnosti in števila povezav in narašča približno kvadratno. 
     \item \textbf{Drugi ekscentrični povezovalni indeks}:
     \[
-    \xi_1^*(G) = \sum_{uv \in E(G)} (\operatorname{e}_G(u) \cdot \operatorname{e}_G(v))
+    \xi_2(G) = \sum_{uv \in E(G)} (\operatorname{e}_G(u) \cdot \operatorname{e}_G(v))
     \]
+
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.8\textwidth]{sec_index_plot.png}
+        \caption{Vrednosti RCW(G) za različne velikosti grafa C\{10k\}.}
+        \label{fig:rcw}
+    \end{figure}
+
+
+
+    Indeks je odvisen od ekscentričnosti in števila povezav, enako kot pri prejšnjem primeru. Indeks uporablja produkt eksentričnosti, zato je pričakovana hitrejša rast kot prej, kar tudi graf potrjuje.
 \end{enumerate}
 
 
