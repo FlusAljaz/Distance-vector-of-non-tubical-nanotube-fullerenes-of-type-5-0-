@@ -1,4 +1,5 @@
 \documentclass[a4paper, 12pt]{article}
+\usepackage{graphicx}
 \usepackage[slovene]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -392,18 +393,20 @@ Pravilna formula za $R_k$ v trditvi 7 je:
 \end{izrek}
 
 
-\textcolor{red}{
+{\color{red} 
    Kljub večkratnim preverjanjem in različnim pristopom nikakor ne uspe priti do pravilnega rezultata, 
    kjer bi izrek veljal. 
    
-   Zanimivo pa je, da izrek drži za vse $\alpha$, razen za $\alpha = -2$, če odstranimo $W9$ iz ocen:
-   \[
-   L < W^\alpha(C{10k}) < P.
-   \]
-   
-   To kaže na morebitno napačno vključitev $W_9$ v meje ali potrebo po drugačnem načinu upoštevanja tega člena. \\
-    Opazimo tudi, da ne velja vedno $ \text{L} < \text{P} $ (npr. pri $\alpha = -1$).
+   Zanimivo pa je, da izrek drži za vse $\alpha$, razen za $\alpha = -2$, če odstranimo $W_9$ iz ocen:
 }
+\[
+L < W^\alpha(C_{10k}) < P.
+\]
+{\color{red}
+   To kaže na morebitno napačno vključitev $W_9$ v meje ali potrebo po drugačnem načinu upoštevanja tega člena. \\  
+   Opazimo tudi, da ne velja vedno $ \text{L} < \text{P} $ (npr. pri $\alpha = -1$).
+}
+
 
 Na zagovoru bodo predstavljeni tudi različni indeksi in njihove lastnosti.
 S pomočjo grafov bo analiza še bolj nazorna, kar omogoča boljše razumevanje strukture in povezav v nanotubih.
@@ -423,9 +426,10 @@ Spodaj je prikazan graf Reciprocal Complementary Wiener indeksa glede na velikos
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.8\textwidth]{rcw_index_plot.png}
-    \caption{Vrednosti RCW(G) za različne velikosti grafa C\{10k\}.}
+    \caption{Vrednosti $\text{RCW}(G)$ za različne velikosti grafa $C_{10k}$.}
     \label{fig:rcw}
 \end{figure}
+
 Rast je (z razliko pri majhnih k) linearna in stabilna. Razdalje so pri majhnih k bolj skoncentrirane in graf preide iz kompaktne strukture v bolj raztegnjeno strukturo. 
     
     \item \textbf{Sum-Balaban indeks}:
